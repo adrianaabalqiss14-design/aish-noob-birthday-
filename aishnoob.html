@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayang! 💖</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1f1a24 0%, #121214 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(26, 26, 30, 0.95);
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border: 1px solid rgba(255, 74, 90, 0.2);
+            transition: all 0.4s ease;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #ff4a5a;
+            font-size: 26px;
+        }
+        p.desc {
+            color: #a1a1aa;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        button {
+            background: #26262b;
+            color: white;
+            border: 2px solid #3f3f46;
+            padding: 15px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        button:hover {
+            background: #ff4a5a;
+            border-color: #ff4a5a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 74, 90, 0.3);
+        }
+        .hidden {
+            display: none !important;
+        }
+        .surprise-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #e4e4e7;
+            text-align: left;
+            white-space: pre-line;
+            background: #232329;
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 4px solid #ff4a5a;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .wrong-shake {
+            animation: shake 0.4s ease;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="card" id="main-card">
+        <div id="start-screen">
+            <h2>HBD Ganteng! 🎉💖</h2>
+            <p class="desc">Sebelum kamu bisa baca surat ucapan dari aku, kamu wajib lulus kuis singkat ini dulu ya. Buktikan seberapa peka kamu jadi pacar!</p>
+            <div class="btn-container">
+                <button onclick="startGame()">Mulai Sekarang 🚀</button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <p id="progress" style="color: #ff4a5a; font-weight: 600; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;"></p>
+            <h3 id="question" style="margin-bottom: 25px; font-size: 18px; line-height: 1.4;">Pertanyaan di sini</h3>
+            <div class="btn-container" id="options">
+                </div>
+        </div>
+
+        <div id="end-screen" class="hidden">
+            <h2 style="font-size: 28px; margin-bottom: 5px;">✨ HAPPY BIRTHDAY! ✨</h2>
+            <p style="color: #a1a1aa; font-size: 14px; margin-bottom: 15px;">Yaaay, kamu lulus kuis! 🥳</p>
+            <div class="surprise-text" id="love-letter">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================================
+        // SILAKAN EDIT PERTANYAAN DAN JAWABAN DI BAWAH INI
+        // ========================================================
+        const quizData = [
+            {
+                question: "Di mana tempat pertama kali kita jalan berdua?",
+                options: ["Starbucks Mall", "Taman Kota", "Nasi Goreng Pinggir Jalan", "Bioskop"],
+                answer: "Taman Kota" // Harus sama persis dengan salah satu pilihan di atas
+            },
+            {
+                question: "Apa makanan yang paling aku nggak suka kalau lagi makan bareng?",
+                options: ["Durian", "Seledri", "Kambing", "Petai"],
+                answer: "Durian"
+            },
+            {
+                question: "Ingat gak, bulan apa kita resmi jadian?",
+                options: ["Januari", "Maret", "Agustus", "Oktober"],
+                answer: "Agustus"
+            }
+        ];
+
+        // ========================================================
+        // SILAKAN EDIT SURAT UCAPAN KAMU DI BAWAH INI
+        // ========================================================
+        const loveLetterText = `Selamat ulang tahun yang ke-X, Sayang! 🎂❤️
+
+Ciyee yang berhasil jawab semua pertanyaannya dengan benar! Berarti kamu emang beneran ingat dan peka, hehe. 
+
+Di hari spesialmu ini, aku cuma mau bilang makasih banyak ya udah hadir di hidup aku. Makasih udah jadi pacar yang penyabar, pendengar yang baik, dan selalu bisa bikin aku ketawa bahkan di hari-hari yang capek.
+
+Semoga di usia yang baru ini kamu makin dewasa, sehat selalu, dilancarkan semua urusannya, dan apa yang kamu cita-citakan bisa tercapai satu per satu. Aku bakal selalu dukung kamu di sini.
+
+I love you more than words can say. Selamat merayakan hari lahirmu, ganteng! ✨🦖`;
+
+
+        // LOGIKA UTAMA GAME
+        let currentQuestionIndex = 0;
+        const card = document.getElementById('main-card');
+
+        function startGame() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('game-screen').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const currentQuiz = quizData[currentQuestionIndex];
+            document.getElementById('progress').innerText = `Pertanyaan ${currentQuestionIndex + 1} dari ${quizData.length}`;
+            document.getElementById('question').innerText = currentQuiz.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            currentQuiz.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const currentQuiz = quizData[currentQuestionIndex];
+            if (selectedOption === currentQuiz.answer) {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) {
+                    showQuestion();
+                } else {
+                    showSurprise();
+                }
+            } else {
+                // Efek getar kalau jawaban cowokmu salah
+                card.classList.add('wrong-shake');
+                setTimeout(() => card.classList.remove('wrong-shake'), 400);
+                alert("Teteeeeeot! Salah 😜 Coba ingat-ingat lagi, masa lupa sih!");
+            }
+        }
+
+        function showSurprise() {
+            document.getElementById('game-screen').classList.add('hidden');
+            document.getElementById('end-screen').classList.remove('hidden');
+            document.getElementById('love-letter').innerText = loveLetterText;
+            
+            // Efek ledakan konfeti romantis selama 4 detik
+            var duration = 4 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 4,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.8 },
+                    colors: ['#ff4a5a', '#ffffff', '#ff7ab4']
+                });
+                confetti({
+                    particleCount: 4,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.8 },
+                    colors: ['#ff4a5a', '#ffffff', '#ff7ab4']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
