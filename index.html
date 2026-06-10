@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for my favorite human 🪐</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2=family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #030305;
@@ -175,6 +175,7 @@
             padding: 12px; border-radius: 12px; width: 100%; margin-top: 6px; font-size: 13px; outline: none;
         }
 
+        /* BOARDING PASS METADATA BLOCK */
         .ticket-meta-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -188,6 +189,7 @@
         .meta-label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--neon-blue); letter-spacing: 0.5px;}
         .meta-value { color: #fff; font-weight: 600; margin-top: 2px;}
 
+        /* FAKE TICKET BARCODE */
         .ticket-barcode {
             margin-top: 15px;
             height: 30px;
@@ -304,4 +306,146 @@
                     <option value="Late Night Drive Vibe 🌌">Late Night Drive Vibe 🌌</option>
                 </select>
 
-                <div style="margin-top: 1
+                <div style="margin-top: 14px;">
+                    <p style="font-size: 10px; color: var(--text-secondary); font-weight: 700; letter-spacing: 0.5px;">SELECT SNACK SPEC:</p>
+                    <select id="snack-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
+                        <option value="Caramel Popcorn + Soda 🥤">Caramel Popcorn + Soda 🥤</option>
+                        <option value="Tons of Candy & Ice Cream 🍦">Tons of Candy & Ice Cream 🍦</option>
+                        <option value="Literally Everything on the Menu 🍕">Literally Everything on the Menu 🍕</option>
+                    </select>
+                </div>
+
+                <div class="ticket-meta-grid">
+                    <div>
+                        <p class="meta-label">PASSENGER / SEAT</p>
+                        <p class="meta-value">YOU & ME | 1A & 1B</p>
+                    </div>
+                    <div>
+                        <p class="meta-label">GATE / ENTRY</p>
+                        <p class="meta-value">GATE FOREVER</p>
+                    </div>
+                </div>
+
+                <div class="movie-poster-container" id="poster-frame">
+                    <img src="foto_kita.jpg" alt="Our Movie Photo" onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600'">
+                    <div class="poster-overlay">
+                        <h4 id="poster-movie-title" style="font-size: 16px; font-weight: 800; color: #fff; font-family: 'Syne'; text-transform: uppercase; letter-spacing: -0.3px;"></h4>
+                        <p id="poster-snack-title" style="font-size: 11px; color: var(--neon-blue); font-weight: 600; margin-top: 2px;"></p>
+                    </div>
+                </div>
+
+                <div class="ticket-barcode"></div>
+            </div>
+
+            <div class="stack-layout" style="margin-top: 24px;">
+                <button onclick="launchSurpriseEnd()">jump to hyperspace 🚀</button>
+            </div>
+        </div>
+
+        <div id="view-5" class="hidden">
+            <h1 style="font-size: 20px;">transmission received 🛸</h1>
+            <div class="universe-box">
+                <div class="crawl-engine" id="crawl-box">
+                    EPISODE XX<br>
+                    THE ULTIMATE BOYFRIEND<br><br>
+                    In an infinite cosmos filled with endless stars and planets, the universe somehow aligned perfectly to match us together.<br><br>
+                    Today, we celebrate the existence of the most amazing, patient, and marvel-obsessed guy in the world.<br><br>
+                    You successfully completed another year of dealing with my clingy, chaotic energy, and for that, you deserve an absolute award.<br><br>
+                    May the force protect our bond forever. Scroll down for your note...
+                </div>
+            </div>
+            <div class="stack-layout" id="final-letter" style="opacity: 0; transition: opacity 1.5s ease; margin-top: 16px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px; text-align: left; font-size: 13.5px; line-height: 1.7; border-left: 2px solid var(--neon-red);">
+                    Happy Birthday to my absolute favorite human! 🎂💌<br><br>
+                    Thank you for being my constant, making me smile when things get rough, and just being you. I hope this new year brings you all the happiness, success, and gaming victories you deserve. <br><br>
+                    I love you 3000, always and forever. 🪐❤️
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizDeck = [
+            { question: "Where did we go on our very first official date? 👀", options: ["That Cozy Cafe", "The City Park", "The Movie Theater", "The Mall"], answer: "The City Park" },
+            { question: "What is my ultimate number one pet peeve? 🙄", options: ["Slow replies", "Loud chewing", "Being late", "Bad music taste"], answer: "Slow replies" },
+            { question: "If I was stranded on an island, what food am I taking? 🍣", options: ["Burgers", "Sushi", "Noodles", "Ice Cream"], answer: "Sushi" }
+        ];
+
+        let indexPointer = 0;
+        const mainFrame = document.getElementById('main-card');
+        let playerTicker;
+
+        function nextView(hideIndex, showIndex) {
+            document.getElementById(`view-${hideIndex}`).classList.add('hidden');
+            document.getElementById(`view-${showIndex}`).classList.remove('hidden');
+            if(showIndex === 2) { loadQuizItem(); }
+            if(showIndex === 4) { refreshTicket(); }
+        }
+
+        function loadQuizItem() {
+            const item = quizDeck[indexPointer];
+            document.getElementById('tracker').innerText = `STREAK: ${indexPointer} / ${quizDeck.length}`;
+            document.getElementById('quiz-title').innerText = item.question;
+            const opsBox = document.getElementById('quiz-options');
+            opsBox.innerHTML = '';
+            item.options.forEach(opt => {
+                const btn = document.createElement('button'); btn.innerText = opt;
+                btn.onclick = () => verifyChoice(opt); opsBox.appendChild(btn);
+            });
+        }
+
+        function verifyChoice(chosen) {
+            const item = quizDeck[indexPointer];
+            if (chosen === item.answer) {
+                indexPointer++;
+                if (indexPointer < quizDeck.length) { loadQuizItem(); } else { nextView(2, 3); }
+            } else {
+                mainFrame.classList.add('incorrect');
+                setTimeout(() => mainFrame.classList.remove('incorrect'), 400);
+                alert("Wrong answer! 😭 Think again, Peter Parker.");
+            }
+        }
+
+        function runFakePlayer() {
+            const trigger = document.getElementById('play-btn');
+            const filler = document.getElementById('wave-progress');
+            const stamp = document.getElementById('live-timer');
+            let flowPercent = 0;
+            trigger.innerText = "⏸";
+            playerTicker = setInterval(() => {
+                if(flowPercent < 100) {
+                    flowPercent += 1; filler.style.width = flowPercent + "%";
+                    let elapsed = Math.floor((flowPercent / 100) * 225);
+                    let m = Math.floor(elapsed / 60); let s = elapsed % 60;
+                    stamp.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+                } else { clearInterval(playerTicker); }
+            }, 150);
+        }
+
+        function refreshTicket() {
+            const mov = document.getElementById('movie-spec').value;
+            const snk = document.getElementById('snack-spec').value;
+            
+            const posterFrame = document.getElementById('poster-frame');
+            posterFrame.style.display = "block";
+            
+            document.getElementById('poster-movie-title').innerText = mov;
+            document.getElementById('poster-snack-title').innerText = `🍿 with ${snk}`;
+        }
+
+        function launchSurpriseEnd() {
+            clearInterval(playerTicker); nextView(4, 5);
+            confetti({ particleCount: 150, spread: 85, origin: { y: 0.65 }, colors: ['#ff3344', '#00f0ff', '#ffffff'] });
+            setTimeout(() => {
+                document.getElementById('final-letter').style.opacity = '1';
+                var stopTime = Date.now() + (3.5 * 1000);
+                (function ambientSparks() {
+                    confetti({ particleCount: 2, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#ff3344', '#00f0ff'] });
+                    confetti({ particleCount: 2, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#ff3344', '#00f0ff'] });
+                    if (Date.now() < stopTime) { requestAnimationFrame(ambientSparks); }
+                }());
+            }, 10000);
+        }
+    </script>
+</body>
+</html>
