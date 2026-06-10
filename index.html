@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for my favorite human 🪐</title>
-    <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2=family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #030305;
@@ -40,7 +39,6 @@
                 radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.06) 0%, transparent 40%);
         }
 
-        /* Pinterest Styled Glassmorphic Container */
         .container {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -61,7 +59,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Doodles & Accents */
         .web-doodle {
             font-size: 20px;
             position: absolute;
@@ -87,7 +84,6 @@
             font-size: 13px;
             line-height: 1.6;
             margin-bottom: 32px;
-            font-weight: 400;
         }
 
         .stack-layout {
@@ -96,7 +92,6 @@
             gap: 12px;
         }
 
-        /* Minimalist Pinterest Buttons */
         button {
             background: rgba(255, 255, 255, 0.03);
             color: var(--text-primary);
@@ -106,8 +101,7 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 0.3px;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
         }
 
         button:hover {
@@ -119,7 +113,7 @@
 
         .hidden { display: none !important; }
 
-        /* --- PINTEREST DYNAMIC SPOTIFY WIDGET --- */
+        /* --- SPOTIFY WIDGET --- */
         .spotify-widget {
             background: #07070a;
             border-radius: 24px;
@@ -152,60 +146,86 @@
             justify-content: center;
             align-items: center;
             font-size: 28px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
         .track-meta h4 { font-size: 15px; font-weight: 600; color: #fff; }
         .track-meta p { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
-        
         .timeline-wrapper { margin-top: 18px; }
-        .scrub-bar {
-            width: 100%; height: 4px; background: #1e1e24; border-radius: 2px;
-            position: relative; cursor: pointer;
-        }
-        .scrub-fill {
-            width: 0%; height: 100%; background: var(--spotify-green);
-            border-radius: 2px;
-        }
-        .duration-stamps {
-            display: flex; justify-content: space-between;
-            font-size: 10px; color: var(--text-secondary); margin-top: 8px;
-            font-weight: 500;
-        }
-        .audio-controls {
-            display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 12px;
-        }
-        .circle-play {
-            background: #fff; color: #000; width: 44px; height: 44px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; font-size: 16px; cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .circle-play:hover { transform: scale(1.05); }
+        .scrub-bar { width: 100%; height: 4px; background: #1e1e24; border-radius: 2px; }
+        .scrub-fill { width: 0%; height: 100%; background: var(--spotify-green); }
+        .duration-stamps { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 8px; }
+        .audio-controls { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 12px; }
+        .circle-play { background: #fff; color: #000; width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; cursor: pointer; }
 
-        /* --- CUTOUT CINEMA TICKET --- */
+        /* --- DETAILED CINEMA BOARDING PASS DESIGN --- */
         .ticket-card {
             background: linear-gradient(180deg, #0d111f 0%, #060810 100%);
             border-radius: 22px; padding: 24px;
             border: 1px dashed rgba(0, 240, 255, 0.25);
             position: relative; text-align: left;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
         .notch-left, .notch-right {
-            position: absolute; top: 45%; width: 20px; height: 20px;
-            background: #030305; border-radius: 50%;
+            position: absolute; top: 32%; width: 20px; height: 20px; background: #030305; border-radius: 50%;
         }
         .notch-left { left: -11px; }
         .notch-right { right: -11px; }
         
         .aesthetic-dropdown {
             background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08);
-            padding: 12px; border-radius: 12px; width: 100%; margin-top: 8px; font-size: 13px;
-            outline: none; font-weight: 500;
+            padding: 12px; border-radius: 12px; width: 100%; margin-top: 6px; font-size: 13px; outline: none;
         }
 
-        /* --- STAR WARS PERSPECTIVE CRAWL --- */
-        .universe-box {
-            perspective: 280px; overflow: hidden; height: 240px;
-            position: relative; margin-bottom: 10px;
+        /* BOARDING PASS METADATA BLOCK */
+        .ticket-meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 12px;
+            font-size: 11px;
+            color: var(--text-secondary);
         }
+        .meta-label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--neon-blue); letter-spacing: 0.5px;}
+        .meta-value { color: #fff; font-weight: 600; margin-top: 2px;}
+
+        /* FAKE TICKET BARCODE */
+        .ticket-barcode {
+            margin-top: 15px;
+            height: 30px;
+            background: repeating-linear-gradient(90deg, #fff, #fff 2px, transparent 2px, transparent 6px, #fff 6px, #fff 7px, transparent 7px, transparent 12px);
+            opacity: 0.4;
+            width: 100%;
+        }
+
+        /* CINEMA POSTER CONTAINER */
+        .movie-poster-container {
+            margin-top: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            position: relative;
+            background: #000;
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0,240,255,0.1);
+        }
+        .movie-poster-container img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            opacity: 0.55;
+        }
+        .poster-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 15px;
+            background: linear-gradient(to top, rgba(3,3,5,1) 40%, rgba(3,3,5,0.7) 70%, transparent);
+            text-align: center;
+        }
+
+        /* --- STAR WARS CRAWL --- */
+        .universe-box { perspective: 280px; overflow: hidden; height: 220px; position: relative; }
         .crawl-engine {
             position: absolute; top: 100%; width: 100%;
             animation: spaceRun 15s linear forwards;
@@ -214,10 +234,9 @@
         }
         @keyframes spaceRun {
             0% { top: 95%; transform: rotateX(22deg) translateZ(0); }
-            100% { top: -150%; transform: rotateX(22deg) translateZ(-140px); opacity: 0; }
+            100% { top: -160%; transform: rotateX(22deg) translateZ(-140px); opacity: 0; }
         }
 
-        /* Wrong Answer Shake Module */
         .incorrect { animation: twist 0.4s ease; border-color: var(--neon-red); }
         @keyframes twist {
             0%, 100% { transform: translateX(0); }
@@ -230,11 +249,9 @@
 <body>
 
     <div class="container" id="main-card">
-        <!-- Spidey Web Accents -->
         <div class="web-doodle" style="top: 14px; left: 18px;">🕸️</div>
         <div class="web-doodle" style="bottom: 14px; right: 18px;">🕷️</div>
 
-        <!-- STAGE 1: INTRO DECK -->
         <div id="view-1">
             <h1>hey birthday boy 🕷️⚡</h1>
             <p class="sub-heading">welcome to your personal space deck. let's run a quick vibe check to see how well you actually remember our memories before unlocking the lockbox. no cheating.</p>
@@ -243,226 +260,10 @@
             </div>
         </div>
 
-        <!-- STAGE 2: MINIMALIST QUIZ DECK -->
         <div id="view-2" class="hidden">
-            <p id="tracker" style="color: var(--neon-blue); font-size: 11px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1.5px; text-transform: uppercase;"></p>
-            <h3 id="quiz-title" style="margin-bottom: 28px; font-size: 17px; font-weight: 600; line-height: 1.5;"></h3>
+            <p id="tracker" style="color: var(--neon-blue); font-size: 11px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1.5px;"></p>
+            <h3 id="quiz-title" style="margin-bottom: 28px; font-size: 17px; font-weight: 600;"></h3>
             <div class="stack-layout" id="quiz-options"></div>
         </div>
 
-        <!-- STAGE 3: INTERACTIVE IOS SPOTIFY WIDGET -->
-        <div id="view-3" class="hidden">
-            <h1>our rotation 🎧</h1>
-            <p class="sub-heading">honestly, this track loops in my head whenever i look at you.</p>
-            
-            <div class="spotify-widget">
-                <div class="widget-header">
-                    <span>NOW STREAMING</span>
-                    <span style="color: var(--spotify-green);">● LIVE</span>
-                </div>
-                <div class="track-row">
-                    <div class="art-box">🕷️</div>
-                    <div class="track-meta">
-                        <h4>Best Part (Feat. You)</h4>
-                        <p>your clingy companion 💫</p>
-                    </div>
-                </div>
-                <div class="timeline-wrapper">
-                    <div class="scrub-bar"><div class="scrub-fill" id="wave-progress"></div></div>
-                    <div class="duration-stamps"><span id="live-timer">0:00</span><span>3:45</span></div>
-                </div>
-                <div class="audio-controls">
-                    <span style="color: var(--text-secondary); font-size: 18px;">⏮</span>
-                    <div class="circle-play" id="play-btn" onclick="runFakePlayer()">▶</div>
-                    <span style="color: var(--text-secondary); font-size: 18px;">⏭</span>
-                </div>
-            </div>
-
-            <div class="stack-layout">
-                <button onclick="nextView(3, 4)" style="border-color: var(--neon-red); color: #fff; background: rgba(255,51,68,0.05);">grab cinema stub 🎬</button>
-            </div>
-        </div>
-
-        <!-- STAGE 4: INTERACTIVE CINEMA TICKET STUB -->
-        <div id="view-4" class="hidden">
-            <h1>plan our date 🎬</h1>
-            <p class="sub-heading">lock down the specs for our next cinematic adventure below.</p>
-            
-            <div class="ticket-card">
-                <div class="notch-left"></div><div class="notch-right"></div>
-                <h4 style="color: var(--neon-blue); letter-spacing: 2px; font-size: 11px; text-align: center; margin-bottom: 16px; font-family: 'Syne', sans-serif;">BOARDING PASS</h4>
-                
-                <p style="font-size: 11px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">vibe checklist:</p>
-                <select id="movie-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
-                    <option value="Spider-Man Marathon 🕷️">Spider-Man Marathon 🕷️</option>
-                    <option value="Star Wars Deep-Dive 🛸">Star Wars Deep-Dive 🛸</option>
-                    <option value="Late Night Drive Vibe 🌌">Late Night Drive Vibe 🌌</option>
-                </select>
-
-                <div style="margin-top: 14px;">
-                    <p style="font-size: 11px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">snack layout:</p>
-                    <select id="snack-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
-                        <option value="Caramel Popcorn + Soda 🥤">Caramel Popcorn + Soda 🥤</option>
-                        <option value="Tons of Candy & Ice Cream 🍦">Tons of Candy & Ice Cream 🍦</option>
-                        <option value="Literally Everything on the Menu 🍕">Literally Everything on the Menu 🍕</option>
-                    </select>
-                </div>
-
-                <div style="margin-top: 24px; border-top: 1px dashed rgba(255,255,255,0.12); padding-top: 16px; text-align: center;">
-                    <p id="receipt-output" style="color: #fff; font-size: 12px; font-weight: 500; line-height: 1.5;"></p>
-                </div>
-            </div>
-
-            <div class="stack-layout" style="margin-top: 24px;">
-                <button onclick="launchSurpriseEnd()">jump to hyperspace 🚀</button>
-            </div>
-        </div>
-
-        <!-- STAGE 5: CINEMATIC SPACE CRAWL + INTERACTIVE PHOTOsurp -->
-        <div id="view-5" class="hidden">
-            <h1 style="font-size: 20px;">transmission received 🛸</h1>
-            <div class="universe-box">
-                <div class="crawl-engine" id="crawl-box">
-                    EPISODE XX<br>
-                    THE ULTIMATE BOYFRIEND<br><br>
-                    In an infinite cosmos filled with endless stars and planets, the universe somehow aligned perfectly to match us together.<br><br>
-                    Today, we celebrate the existence of the most amazing, patient, and marvel-obsessed guy in the world.<br><br>
-                    You successfully completed another year of dealing with my clingy, chaotic energy, and for that, you deserve an absolute award.<br><br>
-                    May the force protect our bond forever. Scroll down for your note...
-                </div>
-            </div>
-            <div class="stack-layout" id="final-letter" style="opacity: 0; transition: opacity 1.5s ease; margin-top: 16px;">
-                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px; text-align: left; font-size: 13.5px; line-height: 1.7; border-left: 2px solid var(--neon-red);">
-                    Happy Birthday to my absolute favorite human! 🎂💌<br><br>
-                    Thank you for being my constant, making me smile when things get rough, and just being you. I hope this new year brings you all the happiness, success, and gaming victories you deserve. <br><br>
-                    I love you 3000, always and forever. 🪐❤️
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // ==========================================
-        // CONFIGURABLE DATA SETS
-        // ==========================================
-        const quizDeck = [
-            {
-                question: "Where did we go on our very first official date? 👀",
-                options: ["That Cozy Cafe", "The City Park", "The Movie Theater", "The Mall"],
-                answer: "The City Park"
-            },
-            {
-                question: "What is my ultimate number one pet peeve? 🙄",
-                options: ["Slow replies", "Loud chewing", "Being late", "Bad music taste"],
-                answer: "Slow replies"
-            },
-            {
-                question: "If I was stranded on an island, what food am I taking? 🍣",
-                options: ["Burgers", "Sushi", "Noodles", "Ice Cream"],
-                answer: "Sushi"
-            }
-        ];
-
-        let indexPointer = 0;
-        const mainFrame = document.getElementById('main-card');
-        let playerTicker;
-
-        function nextView(hideIndex, showIndex) {
-            document.getElementById(`view-${hideIndex}`).classList.add('hidden');
-            document.getElementById(`view-${showIndex}`).classList.remove('hidden');
-            if(showIndex === 2) { loadQuizItem(); }
-            if(showIndex === 4) { refreshTicket(); }
-        }
-
-        function loadQuizItem() {
-            const item = quizDeck[indexPointer];
-            document.getElementById('tracker').innerText = `STREAK: ${indexPointer} / ${quizDeck.length}`;
-            document.getElementById('quiz-title').innerText = item.question;
-            
-            const opsBox = document.getElementById('quiz-options');
-            opsBox.innerHTML = '';
-            
-            item.options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.innerText = opt;
-                btn.onclick = () => verifyChoice(opt);
-                opsBox.appendChild(btn);
-            });
-        }
-
-        function verifyChoice(chosen) {
-            const item = quizDeck[indexPointer];
-            if (chosen === item.answer) {
-                indexPointer++;
-                if (indexPointer < quizDeck.length) {
-                    loadQuizItem();
-                } else {
-                    nextView(2, 3);
-                }
-            } else {
-                mainFrame.classList.add('incorrect');
-                setTimeout(() => mainFrame.classList.remove('incorrect'), 400);
-                alert("Wrong answer! 😭 Think again, Peter Parker.");
-            }
-        }
-
-        // SPOTIFY LIVE ENGINE
-        let activePlay = false;
-        let flowPercent = 0;
-        function runFakePlayer() {
-            const trigger = document.getElementById('play-btn');
-            const filler = document.getElementById('wave-progress');
-            const stamp = document.getElementById('live-timer');
-            
-            if(!activePlay) {
-                activePlay = true;
-                trigger.innerText = "⏸";
-                playerTicker = setInterval(() => {
-                    if(flowPercent < 100) {
-                        flowPercent += 1;
-                        filler.style.width = flowPercent + "%";
-                        
-                        let elapsed = Math.floor((flowPercent / 100) * 225);
-                        let m = Math.floor(elapsed / 60);
-                        let s = elapsed % 60;
-                        stamp.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
-                    } else {
-                        clearInterval(playerTicker);
-                    }
-                }, 150);
-            } else {
-                activePlay = false;
-                trigger.innerText = "▶";
-                clearInterval(playerTicker);
-            }
-        }
-
-        // TICKET REFRESH MODULE
-        function refreshTicket() {
-            const mov = document.getElementById('movie-spec').value;
-            const snk = document.getElementById('snack-spec').value;
-            document.getElementById('receipt-output').innerHTML = `⚡ LOADING RESERVATION... <br> <span style="color:var(--neon-blue); font-weight:600;">${mov}</span> <br> <span style="color:var(--text-secondary)">complemented by ${snk}</span>`;
-        }
-
-        // FINAL GALAXY SEQUENCER
-        function launchSurpriseEnd() {
-            clearInterval(playerTicker); 
-            nextView(4, 5);
-            
-            // Premium vaporwave pastel confetti pop
-            confetti({ particleCount: 150, spread: 85, origin: { y: 0.65 }, colors: ['#ff3344', '#00f0ff', '#ffffff'] });
-
-            // Reveal letter block smoothly after crawl sweeps up
-            setTimeout(() => {
-                document.getElementById('final-letter').style.opacity = '1';
-                var stopTime = Date.now() + (3.5 * 1000);
-                (function ambientSparks() {
-                    confetti({ particleCount: 2, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#ff3344', '#00f0ff'] });
-                    confetti({ particleCount: 2, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#ff3344', '#00f0ff'] });
-                    if (Date.now() < stopTime) { requestAnimationFrame(ambientSparks); }
-                }());
-            }, 10000);
-        }
-    </script>
-</body>
-</html>
+        <div id="view-3
