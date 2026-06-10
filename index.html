@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Favorite Human 🌌</title>
-    <!-- Aesthetic Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>for my favorite human 🪐</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #070913;      /* Deep Onyx Black with a hint of blue */
-            --navy-deep: #0f172a;    /* Rich Aesthetic Navy */
-            --navy-light: #1e293b;   /* Lighter Navy for contrast */
-            --accent-blue: #38bdf8;  /* Star Wars / Cyber Blue */
-            --spotify-green: #1db954;/* Classic Spotify Accent */
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-main: #030305;
+            --card-bg: rgba(11, 13, 25, 0.45);
+            --border-glow: rgba(0, 240, 255, 0.15);
+            --neon-blue: #00f0ff;
+            --neon-red: #ff3344;
+            --text-primary: #f8fafc;
+            --text-secondary: #64748b;
+            --spotify-green: #1ed760;
         }
 
         * {
@@ -26,340 +27,439 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 24px;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 51, 68, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.06) 0%, transparent 40%);
         }
 
-        /* Glassmorphism Card Design */
-        .card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            padding: 35px 25px;
-            border-radius: 28px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        /* Pinterest Styled Glassmorphic Container */
+        .container {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glow);
+            padding: 40px 28px;
+            border-radius: 32px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.1);
             width: 100%;
-            max-width: 440px;
+            max-width: 420px;
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeIn 0.8s ease;
         }
 
-        h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 600;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Doodles & Accents */
+        .web-doodle {
+            font-size: 20px;
+            position: absolute;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
             letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            background: linear-gradient(to right, #fff, var(--accent-blue));
+            line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 14px;
+        p.sub-heading {
+            color: var(--text-secondary);
+            font-size: 13px;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            font-weight: 400;
         }
 
-        .btn-container {
+        .stack-layout {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
+        /* Minimalist Pinterest Buttons */
         button {
-            background: var(--navy-light);
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 16px;
-            border-radius: 16px;
+            border-radius: 18px;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         button:hover {
-            background: var(--accent-blue);
-            color: var(--bg-dark);
-            border-color: var(--accent-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+            background: var(--text-primary);
+            color: var(--bg-main);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
         }
 
         .hidden { display: none !important; }
 
-        /* --- SPOTIFY PAGE --- */
-        .spotify-container {
-            background: #040405;
-            border-radius: 20px;
+        /* --- PINTEREST DYNAMIC SPOTIFY WIDGET --- */
+        .spotify-widget {
+            background: #07070a;
+            border-radius: 24px;
             padding: 20px;
             text-align: left;
-            margin-top: 20px;
-            border: 1px solid #282828;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 24px;
         }
-        .spot-header {
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+        .track-row {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
+            gap: 16px;
         }
-        .track-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .album-art {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(45deg, var(--navy-deep), var(--accent-blue));
-            border-radius: 8px;
+        .art-box {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, var(--neon-red), #121829);
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
-        .track-text h4 { font-size: 16px; color: #fff; }
-        .track-text p { font-size: 13px; color: var(--text-muted); }
+        .track-meta h4 { font-size: 15px; font-weight: 600; color: #fff; }
+        .track-meta p { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
         
-        /* Simulated Player Controls */
-        .player-bar {
-            width: 100%;
-            height: 4px;
-            background: #404040;
-            border-radius: 2px;
-            margin-top: 20px;
-            position: relative;
+        .timeline-wrapper { margin-top: 18px; }
+        .scrub-bar {
+            width: 100%; height: 4px; background: #1e1e24; border-radius: 2px;
+            position: relative; cursor: pointer;
         }
-        .player-progress {
-            width: 70%;
-            height: 100%;
-            background: var(--spotify-green);
+        .scrub-fill {
+            width: 0%; height: 100%; background: var(--spotify-green);
             border-radius: 2px;
         }
+        .duration-stamps {
+            display: flex; justify-content: space-between;
+            font-size: 10px; color: var(--text-secondary); margin-top: 8px;
+            font-weight: 500;
+        }
+        .audio-controls {
+            display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 12px;
+        }
+        .circle-play {
+            background: #fff; color: #000; width: 44px; height: 44px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-size: 16px; cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .circle-play:hover { transform: scale(1.05); }
 
-        /* --- MOVIE TICKET PAGE --- */
-        .ticket {
-            background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy-deep) 100%);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px dashed rgba(255, 255, 255, 0.2);
-            margin: 20px 0;
-            position: relative;
+        /* --- CUTOUT CINEMA TICKET --- */
+        .ticket-card {
+            background: linear-gradient(180deg, #0d111f 0%, #060810 100%);
+            border-radius: 22px; padding: 24px;
+            border: 1px dashed rgba(0, 240, 255, 0.25);
+            position: relative; text-align: left;
         }
-        .ticket::before, .ticket::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background: var(--bg-dark);
-            border-radius: 50%;
+        .notch-left, .notch-right {
+            position: absolute; top: 45%; width: 20px; height: 20px;
+            background: #030305; border-radius: 50%;
         }
-        .ticket::before { left: -10px; }
-        .ticket::after { right: -10px; }
-
-        /* --- STAR WARS EXTRAVAGANZA --- */
-        .starwars-wrapper {
-            perspective: 300px;
-            overflow: hidden;
-            height: 250px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .starwars-crawl {
-            position: absolute;
-            top: 100%;
-            width: 100%;
-            animation: crawl 12s linear forwards;
-            color: #ffe81f; /* Canon Star Wars Yellow */
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: bold;
-            text-align: justify;
-            font-size: 15px;
-            line-height: 1.8;
-            transform-origin: 50% 100%;
-        }
-        @keyframes crawl {
-            0% { top: 80%; transform: rotateX(25deg) translateZ(0); }
-            100% { top: -120%; transform: rotateX(25deg) translateZ(-150px); opacity: 0; }
+        .notch-left { left: -11px; }
+        .notch-right { right: -11px; }
+        
+        .aesthetic-dropdown {
+            background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08);
+            padding: 12px; border-radius: 12px; width: 100%; margin-top: 8px; font-size: 13px;
+            outline: none; font-weight: 500;
         }
 
-        /* Wrong Answer Shake */
-        .shake { animation: shakeAnim 0.4s ease; }
-        @keyframes shakeAnim {
+        /* --- STAR WARS PERSPECTIVE CRAWL --- */
+        .universe-box {
+            perspective: 280px; overflow: hidden; height: 240px;
+            position: relative; margin-bottom: 10px;
+        }
+        .crawl-engine {
+            position: absolute; top: 100%; width: 100%;
+            animation: spaceRun 15s linear forwards;
+            color: #ffe81f; font-family: 'Syne', sans-serif;
+            font-weight: 700; text-align: center; font-size: 13px; line-height: 1.8;
+        }
+        @keyframes spaceRun {
+            0% { top: 95%; transform: rotateX(22deg) translateZ(0); }
+            100% { top: -150%; transform: rotateX(22deg) translateZ(-140px); opacity: 0; }
+        }
+
+        /* Wrong Answer Shake Module */
+        .incorrect { animation: twist 0.4s ease; border-color: var(--neon-red); }
+        @keyframes twist {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            75% { transform: translateX(8px); }
+            20% { transform: translateX(-6px); }
+            60% { transform: translateX(6px); }
         }
     </style>
-    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <div class="card" id="main-card">
-        <!-- PAGE 1: THE WELCOME -->
-        <div id="screen-1">
-            <h2>HBD TO MY FAV PERSON 🌌</h2>
-            <p class="subtitle">Okay so... you think you know us inside out? Let's put that to the test real quick before you get your actual gift. No pressure though, but don't mess up. 😉</p>
-            <div class="btn-container">
-                <button onclick="nextScreen(1, 2)">Bet, let's play 🚀</button>
+    <div class="container" id="main-card">
+        <!-- Spidey Web Accents -->
+        <div class="web-doodle" style="top: 14px; left: 18px;">🕸️</div>
+        <div class="web-doodle" style="bottom: 14px; right: 18px;">🕷️</div>
+
+        <!-- STAGE 1: INTRO DECK -->
+        <div id="view-1">
+            <h1>hey birthday boy 🕷️⚡</h1>
+            <p class="sub-heading">welcome to your personal space deck. let's run a quick vibe check to see how well you actually remember our memories before unlocking the lockbox. no cheating.</p>
+            <div class="stack-layout">
+                <button onclick="nextView(1, 2)">initiate vibe check →</button>
             </div>
         </div>
 
-        <!-- PAGE 2: THE QUIZ -->
-        <div id="screen-2" class="hidden">
-            <p id="progress" style="color: var(--accent-blue); font-size: 12px; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px;"></p>
-            <h3 id="question" style="margin-bottom: 25px; font-size: 18px;"></h3>
-            <div class="btn-container" id="options"></div>
+        <!-- STAGE 2: MINIMALIST QUIZ DECK -->
+        <div id="view-2" class="hidden">
+            <p id="tracker" style="color: var(--neon-blue); font-size: 11px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1.5px; text-transform: uppercase;"></p>
+            <h3 id="quiz-title" style="margin-bottom: 28px; font-size: 17px; font-weight: 600; line-height: 1.5;"></h3>
+            <div class="stack-layout" id="quiz-options"></div>
         </div>
 
-        <!-- PAGE 3: THE SPOTIFY VIBE -->
-        <div id="screen-3" class="hidden">
-            <h2>YOUR BIRTHDAY TRACK 🎧</h2>
-            <p class="subtitle">Honestly, this song describes exactly how I feel about you everyday.</p>
-            <div class="spotify-container">
-                <div class="spot-header">
-                    <span>🟢 PLAYING FROM ALBUM "MY ENTIRE HEART"</span>
+        <!-- STAGE 3: INTERACTIVE IOS SPOTIFY WIDGET -->
+        <div id="view-3" class="hidden">
+            <h1>our rotation 🎧</h1>
+            <p class="sub-heading">honestly, this track loops in my head whenever i look at you.</p>
+            
+            <div class="spotify-widget">
+                <div class="widget-header">
+                    <span>NOW STREAMING</span>
+                    <span style="color: var(--spotify-green);">● LIVE</span>
                 </div>
-                <div class="track-info">
-                    <div class="album-art">❤️</div>
-                    <div class="track-text">
+                <div class="track-row">
+                    <div class="art-box">🕷️</div>
+                    <div class="track-meta">
                         <h4>Best Part (Feat. You)</h4>
-                        <p>Your Favorite Girl</p>
+                        <p>your clingy companion 💫</p>
                     </div>
                 </div>
-                <div class="player-bar"><div class="player-progress"></div></div>
-            </div>
-            <div class="btn-container" style="margin-top: 25px;">
-                <button onclick="nextScreen(3, 4)">Next Date Memory 🎬</button>
-            </div>
-        </div>
-
-        <!-- PAGE 4: THE MOVIE STUB -->
-        <div id="screen-4" class="hidden">
-            <h2>OUR MOVIE NIGHT 🎬</h2>
-            <p class="subtitle">Admit it, movie dates with you are literally top-tier. Here is your golden ticket for our next one!</p>
-            <div class="ticket">
-                <h3 style="color: var(--accent-blue); margin-bottom: 5px;">ADMIT ONE</h3>
-                <p style="font-size: 13px; color: var(--text-muted);">Valid for: Infinite Cuddles & Snacks</p>
-                <div style="margin-top: 20px; font-size: 14px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 15px;">
-                    <p><strong>ROW:</strong> US | <strong>SEAT:</strong> FOREVER</p>
+                <div class="timeline-wrapper">
+                    <div class="scrub-bar"><div class="scrub-fill" id="wave-progress"></div></div>
+                    <div class="duration-stamps"><span id="live-timer">0:00</span><span>3:45</span></div>
+                </div>
+                <div class="audio-controls">
+                    <span style="color: var(--text-secondary); font-size: 18px;">⏮</span>
+                    <div class="circle-play" id="play-btn" onclick="runFakePlayer()">▶</div>
+                    <span style="color: var(--text-secondary); font-size: 18px;">⏭</span>
                 </div>
             </div>
-            <div class="btn-container">
-                <button onclick="triggerStarWars()">Enter The Galaxy ✨</button>
+
+            <div class="stack-layout">
+                <button onclick="nextView(3, 4)" style="border-color: var(--neon-red); color: #fff; background: rgba(255,51,68,0.05);">grab cinema stub 🎬</button>
             </div>
         </div>
 
-        <!-- PAGE 5: THE STAR WARS CRAWL + FINAL SURPRISE -->
-        <div id="screen-5" class="hidden">
-            <h2>A LONG TIME AGO... 🛸</h2>
-            <div class="starwars-wrapper">
-                <div class="starwars-crawl" id="crawl-text">
+        <!-- STAGE 4: INTERACTIVE CINEMA TICKET STUB -->
+        <div id="view-4" class="hidden">
+            <h1>plan our date 🎬</h1>
+            <p class="sub-heading">lock down the specs for our next cinematic adventure below.</p>
+            
+            <div class="ticket-card">
+                <div class="notch-left"></div><div class="notch-right"></div>
+                <h4 style="color: var(--neon-blue); letter-spacing: 2px; font-size: 11px; text-align: center; margin-bottom: 16px; font-family: 'Syne', sans-serif;">BOARDING PASS</h4>
+                
+                <p style="font-size: 11px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">vibe checklist:</p>
+                <select id="movie-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
+                    <option value="Spider-Man Marathon 🕷️">Spider-Man Marathon 🕷️</option>
+                    <option value="Star Wars Deep-Dive 🛸">Star Wars Deep-Dive 🛸</option>
+                    <option value="Late Night Drive Vibe 🌌">Late Night Drive Vibe 🌌</option>
+                </select>
+
+                <div style="margin-top: 14px;">
+                    <p style="font-size: 11px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">snack layout:</p>
+                    <select id="snack-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
+                        <option value="Caramel Popcorn + Soda 🥤">Caramel Popcorn + Soda 🥤</option>
+                        <option value="Tons of Candy & Ice Cream 🍦">Tons of Candy & Ice Cream 🍦</option>
+                        <option value="Literally Everything on the Menu 🍕">Literally Everything on the Menu 🍕</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 24px; border-top: 1px dashed rgba(255,255,255,0.12); padding-top: 16px; text-align: center;">
+                    <p id="receipt-output" style="color: #fff; font-size: 12px; font-weight: 500; line-height: 1.5;"></p>
+                </div>
+            </div>
+
+            <div class="stack-layout" style="margin-top: 24px;">
+                <button onclick="launchSurpriseEnd()">jump to hyperspace 🚀</button>
+            </div>
+        </div>
+
+        <!-- STAGE 5: CINEMATIC SPACE CRAWL + INTERACTIVE PHOTOsurp -->
+        <div id="view-5" class="hidden">
+            <h1 style="font-size: 20px;">transmission received 🛸</h1>
+            <div class="universe-box">
+                <div class="crawl-engine" id="crawl-box">
                     EPISODE XX<br>
-                    THE BIRTHDAY BOY<br><br>
-                    In a galaxy filled with billions of people, the universe somehow brought us together. <br><br>
-                    Today, we celebrate the most amazing, handsome, and loving guy in the galaxy. <br><br>
-                    You survived another year of my clinginess, and for that, you deserve an absolute medal. May the force be with us, always.
+                    THE ULTIMATE BOYFRIEND<br><br>
+                    In an infinite cosmos filled with endless stars and planets, the universe somehow aligned perfectly to match us together.<br><br>
+                    Today, we celebrate the existence of the most amazing, patient, and marvel-obsessed guy in the world.<br><br>
+                    You successfully completed another year of dealing with my clingy, chaotic energy, and for that, you deserve an absolute award.<br><br>
+                    May the force protect our bond forever. Scroll down for your note...
                 </div>
             </div>
-            <div class="btn-container" id="final-btn-holder" style="opacity: 0; transition: opacity 1s;">
-                <p style="color: var(--accent-blue); margin-bottom: 15px; font-size: 15px;">I love you to the moon and back. Happy Birthday! 🎂💖</p>
+            <div class="stack-layout" id="final-letter" style="opacity: 0; transition: opacity 1.5s ease; margin-top: 16px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px; text-align: left; font-size: 13.5px; line-height: 1.7; border-left: 2px solid var(--neon-red);">
+                    Happy Birthday to my absolute favorite human! 🎂💌<br><br>
+                    Thank you for being my constant, making me smile when things get rough, and just being you. I hope this new year brings you all the happiness, success, and gaming victories you deserve. <br><br>
+                    I love you 3000, always and forever. 🪐❤️
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         // ==========================================
-        // CUSTOMIZE YOUR QUIZ QUESTIONS HERE
+        // CONFIGURABLE DATA SETS
         // ==========================================
-        const quizData = [
+        const quizDeck = [
             {
-                question: "Where did we go on our very first date? 🤔",
+                question: "Where did we go on our very first official date? 👀",
                 options: ["That Cozy Cafe", "The City Park", "The Movie Theater", "The Mall"],
-                answer: "The City Park" // Match perfectly with one option
+                answer: "The City Park"
             },
             {
-                question: "What's my absolute biggest pet peeve? 🙄",
+                question: "What is my ultimate number one pet peeve? 🙄",
                 options: ["Slow replies", "Loud chewing", "Being late", "Bad music taste"],
                 answer: "Slow replies"
             },
             {
-                question: "If I could only eat one food forever, what is it? 🍕",
+                question: "If I was stranded on an island, what food am I taking? 🍣",
                 options: ["Burgers", "Sushi", "Noodles", "Ice Cream"],
                 answer: "Sushi"
             }
         ];
 
-        let currentQuestionIndex = 0;
-        const card = document.getElementById('main-card');
+        let indexPointer = 0;
+        const mainFrame = document.getElementById('main-card');
+        let playerTicker;
 
-        function nextScreen(hideNum, showNum) {
-            document.getElementById(`screen-${hideNum}`).classList.add('hidden');
-            document.getElementById(`screen-${showNum}`).classList.remove('hidden');
-            if(showNum === 2) { showQuestion(); }
+        function nextView(hideIndex, showIndex) {
+            document.getElementById(`view-${hideIndex}`).classList.add('hidden');
+            document.getElementById(`view-${showIndex}`).classList.remove('hidden');
+            if(showIndex === 2) { loadQuizItem(); }
+            if(showIndex === 4) { refreshTicket(); }
         }
 
-        function showQuestion() {
-            const currentQuiz = quizData[currentQuestionIndex];
-            document.getElementById('progress').innerText = `ROUND ${currentQuestionIndex + 1} OF ${quizData.length}`;
-            document.getElementById('question').innerText = currentQuiz.question;
+        function loadQuizItem() {
+            const item = quizDeck[indexPointer];
+            document.getElementById('tracker').innerText = `STREAK: ${indexPointer} / ${quizDeck.length}`;
+            document.getElementById('quiz-title').innerText = item.question;
             
-            const optionsContainer = document.getElementById('options');
-            optionsContainer.innerHTML = '';
+            const opsBox = document.getElementById('quiz-options');
+            opsBox.innerHTML = '';
             
-            currentQuiz.options.forEach(option => {
-                const button = document.createElement('button');
-                button.innerText = option;
-                button.onclick = () => checkAnswer(option);
-                optionsContainer.appendChild(button);
+            item.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.innerText = opt;
+                btn.onclick = () => verifyChoice(opt);
+                opsBox.appendChild(btn);
             });
         }
 
-        function checkAnswer(selectedOption) {
-            const currentQuiz = quizData[currentQuestionIndex];
-            if (selectedOption === currentQuiz.answer) {
-                currentQuestionIndex++;
-                if (currentQuestionIndex < quizData.length) {
-                    showQuestion();
+        function verifyChoice(chosen) {
+            const item = quizDeck[indexPointer];
+            if (chosen === item.answer) {
+                indexPointer++;
+                if (indexPointer < quizDeck.length) {
+                    loadQuizItem();
                 } else {
-                    // Go to Spotify page once quiz is passed
-                    nextScreen(2, 3);
+                    nextView(2, 3);
                 }
             } else {
-                card.classList.add('shake');
-                setTimeout(() => card.classList.remove('shake'), 400);
-                alert("Wrong answer! 😭 Think again babe, don't break my heart!");
+                mainFrame.classList.add('incorrect');
+                setTimeout(() => mainFrame.classList.remove('incorrect'), 400);
+                alert("Wrong answer! 😭 Think again, Peter Parker.");
             }
         }
 
-        function triggerStarWars() {
-            nextScreen(4, 5);
+        // SPOTIFY LIVE ENGINE
+        let activePlay = false;
+        let flowPercent = 0;
+        function runFakePlayer() {
+            const trigger = document.getElementById('play-btn');
+            const filler = document.getElementById('wave-progress');
+            const stamp = document.getElementById('live-timer');
             
-            // Pop confetti burst right when Star Wars page opens
-            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#38bdf8', '#ffffff', '#0f172a'] });
+            if(!activePlay) {
+                activePlay = true;
+                trigger.innerText = "⏸";
+                playerTicker = setInterval(() => {
+                    if(flowPercent < 100) {
+                        flowPercent += 1;
+                        filler.style.width = flowPercent + "%";
+                        
+                        let elapsed = Math.floor((flowPercent / 100) * 225);
+                        let m = Math.floor(elapsed / 60);
+                        let s = elapsed % 60;
+                        stamp.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+                    } else {
+                        clearInterval(playerTicker);
+                    }
+                }, 150);
+            } else {
+                activePlay = false;
+                trigger.innerText = "▶";
+                clearInterval(playerTicker);
+            }
+        }
 
-            // Reveal final love note after crawl animation finishes (approx 10-11 seconds)
+        // TICKET REFRESH MODULE
+        function refreshTicket() {
+            const mov = document.getElementById('movie-spec').value;
+            const snk = document.getElementById('snack-spec').value;
+            document.getElementById('receipt-output').innerHTML = `⚡ LOADING RESERVATION... <br> <span style="color:var(--neon-blue); font-weight:600;">${mov}</span> <br> <span style="color:var(--text-secondary)">complemented by ${snk}</span>`;
+        }
+
+        // FINAL GALAXY SEQUENCER
+        function launchSurpriseEnd() {
+            clearInterval(playerTicker); 
+            nextView(4, 5);
+            
+            // Premium vaporwave pastel confetti pop
+            confetti({ particleCount: 150, spread: 85, origin: { y: 0.65 }, colors: ['#ff3344', '#00f0ff', '#ffffff'] });
+
+            // Reveal letter block smoothly after crawl sweeps up
             setTimeout(() => {
-                document.getElementById('final-btn-holder').style.opacity = '1';
-                // Continuous gentle confetti loop for vibes
-                var end = Date.now() + (3 * 1000);
-                (function frame() {
-                    confetti({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#38bdf8', '#ffffff'] });
-                    confetti({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#38bdf8', '#ffffff'] });
-                    if (Date.now() < end) { requestAnimationFrame(frame); }
+                document.getElementById('final-letter').style.opacity = '1';
+                var stopTime = Date.now() + (3.5 * 1000);
+                (function ambientSparks() {
+                    confetti({ particleCount: 2, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#ff3344', '#00f0ff'] });
+                    confetti({ particleCount: 2, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#ff3344', '#00f0ff'] });
+                    if (Date.now() < stopTime) { requestAnimationFrame(ambientSparks); }
                 }());
             }, 10000);
         }
