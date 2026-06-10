@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for Muhammad Farish Aiman Bin Lazaman (my favourite human :p)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0a0a0c;
-            --card-bg: rgba(14, 14, 18, 0.88);
-            --border-glow: #333344;
+            --bg-main: #030305;
+            --card-bg: rgba(11, 13, 25, 0.45);
+            --border-glow: rgba(0, 240, 255, 0.15);
             --neon-blue: #00f0ff;
             --neon-red: #ff3344;
-            --y2k-purple: #a855f7;
-            --y2k-green: #39ff14;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
+            --text-primary: #f8fafc;
+            --text-secondary: #64748b;
             --spotify-green: #1ed760;
         }
 
@@ -36,94 +34,49 @@
             min-height: 100vh;
             padding: 24px;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
-            background-size: 20px 20px, 20px 20px, 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 0 0, 0 0, 40px 60px, 130px 270px;
-            z-index: -1;
-            animation: twinkleStars 10s linear infinite;
-        }
-
-        @keyframes twinkleStars {
-            0% { opacity: 0.8; }
-            50% { opacity: 0.5; }
-            100% { opacity: 0.8; }
+                radial-gradient(circle at 10% 20%, rgba(255, 51, 68, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.06) 0%, transparent 40%);
         }
 
         .container {
             background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 2px solid #22222b;
-            padding: 0px; 
-            border-radius: 12px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(168, 85, 247, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glow);
+            padding: 40px 28px;
+            border-radius: 32px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.1);
             width: 100%;
             max-width: 420px;
             text-align: center;
             position: relative;
-            animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            overflow: hidden;
+            animation: fadeIn 0.8s ease;
         }
-
-        .window-bar {
-            background: #16161f;
-            padding: 10px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #22222b;
-            font-family: 'Courier Prime', monospace;
-            font-size: 11px;
-            color: var(--y2k-purple);
-            font-weight: bold;
-        }
-        .window-dots { display: flex; gap: 6px; }
-        .window-dot { width: 8px; height: 8px; border-radius: 50%; background: #2a2a35; }
-        .window-dot.red { background: var(--neon-red); }
-
-        .window-content { padding: 35px 24px; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.96) translateY(10px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .y2k-ticker {
-            background: rgba(168, 85, 247, 0.15);
-            color: var(--text-primary);
-            font-family: 'Courier Prime', monospace;
-            font-size: 11px;
-            padding: 4px 0;
-            margin-bottom: 24px;
-            border: 1px dashed rgba(168, 85, 247, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .web-doodle {
+            font-size: 20px;
+            position: absolute;
+            opacity: 0.15;
+            pointer-events: none;
         }
 
         h1 {
             font-family: 'Syne', sans-serif;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin-bottom: 12px;
-            background: linear-gradient(90deg, #ffffff, var(--y2k-purple), var(--neon-blue));
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
         p.sub-heading {
@@ -133,16 +86,6 @@
             margin-bottom: 32px;
         }
 
-        .ascii-art {
-            font-family: 'Courier Prime', monospace;
-            font-size: 10px;
-            color: var(--y2k-purple);
-            white-space: pre;
-            margin-bottom: 16px;
-            opacity: 0.7;
-            line-height: 1.2;
-        }
-
         .stack-layout {
             display: flex;
             flex-direction: column;
@@ -150,37 +93,33 @@
         }
 
         button {
-            background: #12121a;
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-primary);
-            border: 1px solid #2d2d3d;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 16px;
-            border-radius: 8px;
+            border-radius: 18px;
             cursor: pointer;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-family: 'Courier Prime', monospace;
-            transition: all 0.2s ease;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease;
         }
 
         button:hover {
             background: var(--text-primary);
-            color: #000;
-            border-color: #fff;
+            color: var(--bg-main);
             transform: translateY(-2px);
-            box-shadow: 4px 4px 0px var(--y2k-purple);
+            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
         }
 
         .hidden { display: none !important; }
 
-        /* --- SPOTIFY --- */
+        /* --- SPOTIFY WIDGET --- */
         .spotify-widget {
-            background: #09090d;
-            border-radius: 12px;
+            background: #07070a;
+            border-radius: 24px;
             padding: 20px;
             text-align: left;
-            border: 1px solid #1e1e28;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             margin-bottom: 24px;
         }
         .widget-header {
@@ -188,116 +127,114 @@
             justify-content: space-between;
             align-items: center;
             font-size: 10px;
-            font-weight: bold;
-            font-family: 'Courier Prime', monospace;
-            color: var(--y2k-purple);
-            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 1.5px;
             margin-bottom: 16px;
         }
-        .track-row { display: flex; align-items: center; gap: 16px; }
+        .track-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
         .art-box {
-            width: 64px;
-            height: 64px;
-            background: #13131c;
-            border: 1px solid #2d2d3d;
-            border-radius: 8px;
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, var(--neon-red), #121829);
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 28px;
         }
-        .track-meta h4 { font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
-        .track-meta p { font-size: 11px; color: var(--text-secondary); margin-top: 3px; font-family: 'Courier Prime', monospace; }
-        
+        .track-meta h4 { font-size: 15px; font-weight: 600; color: #fff; }
+        .track-meta p { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
         .timeline-wrapper { margin-top: 18px; }
-        .scrub-bar { width: 100%; height: 5px; background: #181822; }
-        .scrub-fill { width: 0%; height: 100%; background: var(--y2k-purple); }
-        .duration-stamps { display: flex; justify-content: space-between; font-size: 10px; font-family: 'Courier Prime', monospace; color: var(--text-secondary); margin-top: 8px; }
-        
+        .scrub-bar { width: 100%; height: 4px; background: #1e1e24; border-radius: 2px; }
+        .scrub-fill { width: 0%; height: 100%; background: var(--spotify-green); }
+        .duration-stamps { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 8px; }
         .audio-controls { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 12px; }
-        .circle-play { background: #fff; color: #000; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 14px; cursor: pointer; }
+        .circle-play { background: #fff; color: #000; width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; cursor: pointer; }
 
-        /* --- CINEMA STUB --- */
+        /* --- DETAILED CINEMA BOARDING PASS DESIGN --- */
         .ticket-card {
-            background: #09090d;
-            border-radius: 12px; padding: 24px;
-            border: 2px dashed #2d2d3d;
+            background: linear-gradient(180deg, #0d111f 0%, #060810 100%);
+            border-radius: 22px; padding: 24px;
+            border: 1px dashed rgba(0, 240, 255, 0.25);
             position: relative; text-align: left;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
         .notch-left, .notch-right {
-            position: absolute; top: 35%; width: 16px; height: 16px; background: #0a0a0c; border-radius: 50%;
-            border: 1px solid #2d2d3d;
+            position: absolute; top: 32%; width: 20px; height: 20px; background: #030305; border-radius: 50%;
         }
-        .notch-left { left: -10px; }
-        .notch-right { right: -10px; }
+        .notch-left { left: -11px; }
+        .notch-right { right: -11px; }
         
         .aesthetic-dropdown {
-            background: #13131c; color: #fff; border: 1px solid #2d2d3d;
-            padding: 12px; border-radius: 6px; width: 100%; margin-top: 6px; font-size: 13px; outline: none;
-            font-family: 'Courier Prime', monospace;
+            background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08);
+            padding: 12px; border-radius: 12px; width: 100%; margin-top: 6px; font-size: 13px; outline: none;
         }
 
         .ticket-meta-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
             margin-top: 15px;
-            border-top: 1px solid #1e1e28;
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 12px;
             font-size: 11px;
-            font-family: 'Courier Prime', monospace;
+            color: var(--text-secondary);
         }
-        .meta-label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--y2k-purple); }
-        .meta-value { color: #fff; margin-top: 2px;}
+        .meta-label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--neon-blue); letter-spacing: 0.5px;}
+        .meta-value { color: #fff; font-weight: 600; margin-top: 2px;}
 
         .ticket-barcode {
-            margin-top: 18px;
-            height: 35px;
-            background: repeating-linear-gradient(90deg, var(--text-primary), var(--text-primary) 2px, transparent 2px, transparent 6px, var(--text-primary) 6px, var(--text-primary) 7px, transparent 7px, transparent 12px);
-            opacity: 0.3;
+            margin-top: 15px;
+            height: 30px;
+            background: repeating-linear-gradient(90deg, #fff, #fff 2px, transparent 2px, transparent 6px, #fff 6px, #fff 7px, transparent 7px, transparent 12px);
+            opacity: 0.4;
             width: 100%;
         }
 
         .movie-poster-container {
             margin-top: 20px;
-            border-radius: 8px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #2d2d3d;
+            border: 1px solid rgba(0, 240, 255, 0.2);
             position: relative;
             background: #000;
             display: none;
-            animation: fadeIn 0.6s ease;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0,240,255,0.1);
         }
         .movie-poster-container img {
             width: 100%;
             height: 230px;
             object-fit: cover;
-            opacity: 0.5;
-            filter: grayscale(20%) contrast(110%);
+            opacity: 0.55;
         }
         .poster-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
             padding: 20px 15px;
-            background: linear-gradient(to top, #09090d 50%, transparent);
+            background: linear-gradient(to top, rgba(3,3,5,1) 40%, rgba(3,3,5,0.7) 70%, transparent);
             text-align: center;
         }
 
-        /* --- CRAWL ENGINE --- */
-        .universe-box { perspective: 300px; overflow: hidden; height: 220px; position: relative; background: #050507; border: 1px solid #1e1e28; border-radius: 8px; margin-bottom: 20px; }
+        /* --- STAR WARS CRAWL --- */
+        .universe-box { perspective: 280px; overflow: hidden; height: 220px; position: relative; }
         .crawl-engine {
             position: absolute; top: 100%; width: 100%;
-            animation: spaceRun 16s linear forwards;
-            color: var(--y2k-green); font-family: 'Courier Prime', monospace;
-            font-weight: 700; text-align: center; font-size: 12px; line-height: 1.8;
-            padding: 0 10px;
+            animation: spaceRun 15s linear forwards;
+            color: #ffe81f; font-family: 'Syne', sans-serif;
+            font-weight: 700; text-align: center; font-size: 13px; line-height: 1.8;
         }
         @keyframes spaceRun {
-            0% { top: 95%; transform: rotateX(20deg) translateZ(0); }
-            100% { top: -180%; transform: rotateX(20deg) translateZ(-120px); opacity: 0; }
+            0% { top: 95%; transform: rotateX(22deg) translateZ(0); }
+            100% { top: -160%; transform: rotateX(22deg) translateZ(-140px); opacity: 0; }
         }
 
-        .incorrect { animation: twist 0.4s ease; border-color: var(--neon-red) !important; }
+        .incorrect { animation: twist 0.4s ease; border-color: var(--neon-red); }
         @keyframes twist {
             0%, 100% { transform: translateX(0); }
             20% { transform: translateX(-6px); }
@@ -309,143 +246,130 @@
 <body>
 
     <div class="container" id="main-card">
-        <div class="window-bar">
-            <div class="window-dots">
-                <div class="window-dot red"></div>
-                <div class="window-dot"></div>
-                <div class="window-dot"></div>
+        <div class="web-doodle" style="top: 14px; left: 18px;">🕸️</div>
+        <div class="web-doodle" style="bottom: 14px; right: 18px;">🕷️</div>
+
+        <div id="view-1">
+            <h1>happy birthday aish !!! 🕷️</h1>
+            <p class="sub-heading">welcome to your personal space deck. answer correctly to get access to your birthday present. no cheating bro. salah, noob.</p>
+            <div class="stack-layout">
+                <button onclick="nextView(1, 2)">initiate vibe check →</button>
             </div>
-            <span>star_sparkle_v3.exe</span>
-            <span>[X]</span>
         </div>
 
-        <div class="window-content">
-            <div id="view-1">
-                <div class="ascii-art">✨ 🪐 [AISH_SYS_ONLINE] 🪐 ✨</div>
-                <h1>happy bday aish 🕷️</h1>
-                <div class="y2k-ticker">
-                    <marquee scrollamount="4">★ SPARKLE SYSTEM CHECK // ENTER THE BOX // CURRENT STATUS: TWENTY ★</marquee>
-                </div>
-                <p class="sub-heading">welcome to your personal space deck. let's run a quick vibe check to see how well you actually remember our memories before unlocking the lockbox. no cheating bro.</p>
-                <div class="stack-layout">
-                    <button onclick="nextView(1, 2)">initiate vibe check →</button>
-                </div>
-            </div>
+        <div id="view-2" class="hidden">
+            <p id="tracker" style="color: var(--neon-blue); font-size: 11px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1.5px;"></p>
+            <h3 id="quiz-title" style="margin-bottom: 28px; font-size: 17px; font-weight: 600;"></h3>
+            <div class="stack-layout" id="quiz-options"></div>
+        </div>
 
-            <div id="view-2" class="hidden">
-                <p id="tracker" style="color: var(--y2k-purple); font-family: 'Courier Prime', monospace; font-size: 11px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;"></p>
-                <h3 id="quiz-title" style="margin-bottom: 28px; font-size: 17px; font-weight: 600; letter-spacing: -0.3px;"></h3>
-                <div class="stack-layout" id="quiz-options"></div>
-            </div>
-
-            <div id="view-3" class="hidden">
-                <h1>our rotation 🎧</h1>
-                <p class="sub-heading">honestly, this track always reminds me of you.</p>
-                <div class="spotify-widget">
-                    <div class="widget-header"><span>NOW STREAMING</span><span style="color: var(--y2k-green);">● LIVE</span></div>
-                    <div class="track-row">
-                        <div class="art-box">💫</div>
-                        <div class="track-meta">
-                            <h4>Robbers (The 1975)</h4>
-                            <p>your cool companion 💫</p>
-                        </div>
-                    </div>
-                    <div class="timeline-wrapper">
-                        <div class="scrub-bar"><div class="scrub-fill" id="wave-progress"></div></div>
-                        <div class="duration-stamps"><span id="live-timer">0:00</span><span>4:14</span></div>
-                    </div>
-                    <div class="audio-controls">
-                        <span style="color: var(--text-secondary); font-size: 18px; cursor:pointer;">⏮</span>
-                        <div class="circle-play" id="play-btn" onclick="runFakePlayer()">▶</div>
-                        <span style="color: var(--text-secondary); font-size: 18px; cursor:pointer;">⏭</span>
+        <div id="view-3" class="hidden">
+            <h1>our rotation 🎧</h1>
+            <p class="sub-heading">honestly, this track always reminds me of you.</p>
+            <div class="spotify-widget">
+                <div class="widget-header"><span>NOW STREAMING</span><span style="color: var(--spotify-green);">● LIVE</span></div>
+                <div class="track-row">
+                    <div class="art-box">🕷️</div>
+                    <div class="track-meta">
+                        <h4>Robbers (The 1975)</h4>
+                        <p>your cool (the coolest) companion 💫</p>
                     </div>
                 </div>
-                <div class="stack-layout"><button onclick="nextView(3, 4)" style="border-color: var(--y2k-purple);">grab cinema stub 🎬</button></div>
+                <div class="timeline-wrapper">
+                    <div class="scrub-bar"><div class="scrub-fill" id="wave-progress"></div></div>
+                    <div class="duration-stamps"><span id="live-timer">0:00</span><span>4:14</span></div>
+                </div>
+                <div class="audio-controls">
+                    <span style="color: var(--text-secondary); font-size: 18px;">⏮</span>
+                    <div class="circle-play" id="play-btn" onclick="runFakePlayer()">▶</div>
+                    <span style="color: var(--text-secondary); font-size: 18px;">⏭</span>
+                </div>
             </div>
+            <div class="stack-layout"><button onclick="nextView(3, 4)" style="border-color: var(--neon-red);">grab cinema stub 🎬</button></div>
+        </div>
 
-            <div id="view-4" class="hidden">
-                <h1>cinema pass 🎬</h1>
-                <p class="sub-heading">Customize your boarding pass credentials below to generate our cinematic movie poster.</p>
+        <div id="view-4" class="hidden">
+            <h1>cinema pass 🎬</h1>
+            <p class="sub-heading">Customize your boarding pass credentials below to generate our cinematic movie poster.</p>
+            
+            <div class="ticket-card">
+                <div class="notch-left"></div><div class="notch-right"></div>
+                <h4 style="color: var(--neon-blue); letter-spacing: 3px; font-size: 11px; text-align: center; margin-bottom: 18px; font-family: 'Syne', sans-serif;">🎟️ ADMIT ONE: PREMIERE PASS</h4>
                 
-                <div class="ticket-card">
-                    <div class="notch-left"></div><div class="notch-right"></div>
-                    <h4 style="color: var(--y2k-purple); letter-spacing: 2px; font-size: 11px; text-align: center; margin-bottom: 18px; font-family: 'Courier Prime', monospace;">🎟️ ADMIT ONE: PREMIERE PASS</h4>
-                    
-                    <p style="font-size: 10px; color: var(--text-secondary); font-weight: 700; font-family: 'Courier Prime', monospace;">SELECT CINEMA SCREEN:</p>
-                    <select id="movie-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
-                        <option value="Spider-Man Marathon 🕷️">Spider-Man Marathon 🕷️</option>
-                        <option value="Star Wars Deep-Dive 🛸">Star Wars Deep-Dive 🛸</option>
-                        <option value="Late Night Drive with Adriana cewe imut ! 🌌">Late Night Drive with Adriana cewe imut ! 🌌</option>
+                <p style="font-size: 10px; color: var(--text-secondary); font-weight: 700; letter-spacing: 0.5px;">SELECT CINEMA SCREEN:</p>
+                <select id="movie-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
+                    <option value="Spider-Man Marathon 🕷️">Spider-Man Marathon 🕷️</option>
+                    <option value="Star Wars Deep-Dive 🛸">Star Wars Deep-Dive 🛸</option>
+                    <option value="Late Night Drive with Adriana cewe imut ! 🌌">Late Night Drive with Adriana cewe imut ! 🌌</option>
+                </select>
+
+                <div style="margin-top: 14px;">
+                    <p style="font-size: 10px; color: var(--text-secondary); font-weight: 700; letter-spacing: 0.5px;">SELECT SNACK SPEC:</p>
+                    <select id="snack-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
+                        <option value="BBQ Popcorn + Coke 🥤">BBQ Popcorn + Coke 🥤</option>
+                        <option value="Nasi Kandar (sumpahlaa ?!)">Nasi Kandar (sumpahlaa ?!)</option>
+                        <option value="MCD ^^">MCD ^^</option>
                     </select>
-
-                    <div style="margin-top: 14px;">
-                        <p style="font-size: 10px; color: var(--text-secondary); font-weight: 700; font-family: 'Courier Prime', monospace;">SELECT SNACK SPEC:</p>
-                        <select id="snack-spec" class="aesthetic-dropdown" onchange="refreshTicket()">
-                            <option value="BBQ Popcorn + Coke 🥤">BBQ Popcorn + Coke 🥤</option>
-                            <option value="Nasi Kandar (sumpahlaa ?!)">Nasi Kandar (sumpahlaa ?!)</option>
-                            <option value="MCD ^^">MCD ^^</option>
-                        </select>
-                    </div>
-
-                    <div class="ticket-meta-grid">
-                        <div>
-                            <p class="meta-label">PASSENGER / SEAT</p>
-                            <p class="meta-value">YOU & ME | 6F & 7F</p>
-                        </div>
-                        <div>
-                            <p class="meta-label">GATE / ENTRY</p>
-                            <p class="meta-value">GATE FOREVER</p>
-                        </div>
-                    </div>
-
-                    <div class="movie-poster-container" id="poster-frame">
-                        <img src="foto_kita.jpeg" alt="Our Movie Photo" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600'">
-                        <div class="poster-overlay">
-                            <h4 id="poster-movie-title" style="font-size: 15px; font-weight: 800; color: #fff; font-family: 'Syne'; text-transform: uppercase;"></h4>
-                            <p id="poster-snack-title" style="font-size: 11px; color: var(--y2k-purple); font-weight: 600; margin-top: 2px; font-family: 'Courier Prime', monospace;"></p>
-                        </div>
-                    </div>
-
-                    <div class="ticket-barcode"></div>
                 </div>
 
-                <div class="stack-layout" style="margin-top: 24px;">
-                    <button onclick="launchSurpriseEnd()">jump to hyperspace to meet baby yoda :0 🚀</button>
+                <div class="ticket-meta-grid">
+                    <div>
+                        <p class="meta-label">PASSENGER / SEAT</p>
+                        <p class="meta-value">YOU & ME | 6F & 7F</p>
+                    </div>
+                    <div>
+                        <p class="meta-label">GATE / ENTRY</p>
+                        <p class="meta-value">GATE FOREVER</p>
+                    </div>
                 </div>
+
+                <div class="movie-poster-container" id="poster-frame">
+                    <img src="foto_kita.jpeg" alt="Our Movie Photo" onerror="this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600'">
+                    <div class="poster-overlay">
+                        <h4 id="poster-movie-title" style="font-size: 16px; font-weight: 800; color: #fff; font-family: 'Syne'; text-transform: uppercase; letter-spacing: -0.3px;"></h4>
+                        <p id="poster-snack-title" style="font-size: 11px; color: var(--neon-blue); font-weight: 600; margin-top: 2px;"></p>
+                    </div>
+                </div>
+
+                <div class="ticket-barcode"></div>
             </div>
 
-            <div id="view-5" class="hidden">
-                <h1 style="font-size: 20px;">aish turning 20 ! :o 🛸</h1>
-                <div class="universe-box">
-                    <div class="crawl-engine" id="crawl-box">
-                        EPISODE 67<br>
-                        THE ULTIMATE BOYFRIEND<br><br>
-                        in an infinite cosmos filled with endless stars and planets, the universe somehow aligned perfectly to match us together.<br><br>
-                        today, we celebrate the existence of the most amazing, patient, and marvel obsessed guy in the world.<br><br>
-                        you successfully completed another year of dealing with my COOL (the coolest obv), chaotic energy, and for that, you deserve an absolute award.<br><br>
-                        may the force protect our bond forever. scroll down for your note 
-                    </div>
+            <div class="stack-layout" style="margin-top: 24px;">
+                <button onclick="launchSurpriseEnd()">jump to hyperspace to meet baby yoda :0 🚀</button>
+            </div>
+        </div>
+
+        <div id="view-5" class="hidden">
+            <h1 style="font-size: 20px;">aish turning 20 ! :o 🛸</h1>
+            <div class="universe-box">
+                <div class="crawl-engine" id="crawl-box">
+                    EPISODE 67<br>
+                    THE ULTIMATE BOYFRIEND<br><br>
+                    in an infinite cosmos filled with endless stars and planets, the universe somehow aligned perfectly to match us together.<br><br>
+                    today, we celebrate the existence of the most amazing, patient, and marvel obsessed guy in the world.<br><br>
+                    you successfully completed another year of dealing with my COOL (the coolest obv), chaotic energy, and for that, you deserve an absolute award.<br><br>
+                    may the force protect our bond forever. scroll down for your note 
                 </div>
-                <div class="stack-layout" id="final-letter" style="opacity: 0; display: block; transition: opacity 1.5s ease; margin-top: 16px;">
-                    <div style="background: rgba(168, 85, 247, 0.03); padding: 20px; border-radius: 8px; text-align: left; font-size: 13.5px; line-height: 1.7; border-left: 3px solid var(--y2k-purple); border-right: 1px solid #1e1e28; border-top: 1px solid #1e1e28; border-bottom: 1px solid #1e1e28;">
-                        hi ! aiman kan ? okay :p <br><br>
-                        happy birthday sayang. out of all the people in the world, i get to love someone as kind, caring, and amazing as you. <br><br>
-                        on your special day, i want you to know just how much you mean to me and how grateful i am to have you in my life. like for real. thank you for being my constant, making me smile when things get rough, and just being you.<br><br>
-                        thank you for always being there, for listening to me, for understanding me, and for loving me in ways that make my heart feel full. you're my safe place, my supporter, always be there for me even when i feel like i wanna push people away.<br><br>
-                        you always try to stay and be with me, i love when you always know the boundaries back when we still try to get to know each other. i love when you being so gentle around people you love. i love when you write paragraphs for me hahaha, mesti aku baca
-                        sambil dengar muted sirens by rc. my fav. i love when you know how to lead which i dont have to think when im w you. that sums up you as a person. pandai berdikari, just how you told me abt what happened back when you were kid and know i see everything by my own which prove the story 
-                        u told me. i know the hardships you going through before and now, youre struggling w those but that make me love you harder cs youre really good on handling any problems without panicking bukan macam aku HAHAHAHA. i love the little things about
-                        you just as much as the big things. i love your smile, your laugh, the way you talk about things you are passionate about, and the way you care for the people you love. i love how you make ordinary moments feel special and how you can turn a bad day
-                        into a better one just by being yourself. you have a heart that deserves all the happiness in the world, and i hope today reminds you of how loved and appreciated you truly are. mini aish would be so proud of you sayang just like i do, always. i love to
-                        see you happy sayang, time concert daniel haritu pun, i feel ashamed to tell this, tapi aku nangis tengok sayang happy daniel play fav song sayang. aku jarang gila nangis tengok orang happy. srs. + aku terfikir ja if youre not the one who become "the person", ovt sekejap. i love you sayang. <br><br>
-                        will always be cheering for you every step of the way. whenever life gets hard, i hope you remember how strong, and special you are. and please include me in everything youre doing, when youre happy, sad, struggling, jangan left out aku please.<br><br>
-                        cs i care. you have brought so much joy into my life, and words will never be enough to fully express how much i love you farish aiman. thank you for being patient with me, for accepting me for who i am, and for choosing me every day. loving you is one of the best things
-                        that has ever happened to me.<br><br>
-                        Happy Birthday, farish aiman sayang. may this year bring you everything your heart desires and more. out of billions of stars, countless galaxies, and endless possibilities, no matter where life takes us, somehow our paths crossed. i love you more than words can say.<br><br>
-                        i love you.
-                        <br><br>
-                        - adriana
-                    </div>
+            </div>
+            <div class="stack-layout" id="final-letter" style="opacity: 0; display: block; transition: opacity 1.5s ease; margin-top: 16px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px; text-align: left; font-size: 13.5px; line-height: 1.7; border-left: 2px solid var(--neon-red);">
+                    hi ! aiman kan ? okay :p <br><br>
+                    happy birthday sayang. out of all the people in the world, i get to love someone as kind, caring, and amazing as you. <br><br>
+                    on your special day, i want you to know just how much you mean to me and how grateful i am to have you in my life. like for real. thank you for being my constant, making me smile when things get rough, and just being you.<br><br>
+                    thank you for always being there, for listening to me, for understanding me, and for loving me in ways that make my heart feel full. you're my safe place, my supporter, always be there for me even when i feel like i wanna push people away.<br><br>
+                    you always try to stay and be with me, i love when you always know the boundaries back when we still try to get to know each other. i love when you being so gentle around people you love. i love when you write paragraphs for me hahaha, mesti aku baca
+                    sambil dengar muted sirens by rc. my fav. i love when you know how to lead which i dont have to think when im w you. that sums up you as a person. pandai berdikari, just how you told me abt what happened back when you were kid and know i see everything by my own which prove the story 
+                    u told me. i know the hardships you going through before and now, youre struggling w those but that make me love you harder cs youre really good on handling any problems without panicking bukan macam aku HAHAHAHA. i love the little things about
+                    you just as much as the big things. i love your smile, your laugh, the way you talk about things you are passionate about, and the way you care for the people you love. i love how you make ordinary moments feel special and how you can turn a bad day
+                    into a better one just by being yourself. you have a heart that deserves all the happiness in the world, and i hope today reminds you of how loved and appreciated you truly are. mini aish would be so proud of you sayang just like i do, always. i love to
+                    see you happy sayang, time concert daniel haritu pun, i feel ashamed to tell this, tapi aku nangis tengok sayang happy daniel play fav song sayang. aku jarang gila nangis tengok orang happy. srs. + aku terfikir ja if youre not the one who become "the person", ovt sekejap. i love you sayang. <br><br>
+                    i will always be cheering for you every step of the way. whenever life gets hard, i hope you remember how strong, and special you are. and please include me in everything youre doing, when youre happy, sad, struggling, jangan left out aku please.<br><br>
+                    cs i care. you have brought so much joy into my life, and words will never be enough to fully express how much i love you farish aiman. thank you for being patient with me, for accepting me for who i am, and for choosing me every day. loving you is one of the best things
+                    that has ever happened to me.<br><br>
+                    Happy Birthday, farish aiman sayang. may this year bring you everything your heart desires and more. out of billions of stars, countless galaxies, and endless possibilities, no matter where life takes us, somehow our paths crossed. i love you more than words can say.<br><br>
+                    i love you.
+                    <br><br>
+                    - adriana
                 </div>
             </div>
         </div>
@@ -456,7 +380,7 @@
             { question: "the very first time we met on.. ", options: ["9 November 2025", "8 November 2025", "7 November 1780", "14 December 2025"], answer: "8 November 2025" },
             { question: "berapa jam adriana imut pakai skincare ? 🙄", options: ["5h", "+-30mins", "1h", "60mins"], answer: "+-30mins" },
             { question: "fav routine seorang farish aiman time highsch ? ", options: ["tidur", "study study study", "escape class", "lapar mulu"], answer: "escape class" },
-            { question: "fav boyfriend adriana ? ", options: ["FRATBOY NIALL FREAKIN HORAN (sorry sayang)", "chayanon", "chad michael murray", "farish aiman"], answer: "farish aiman" },
+            { question: "fav boyfriend adriana ? ", options: ["FRATBOY NIALL FREAKIN HORAN (sorry sayang)", "chayanon", "chad michael murray", "farish aiman"], answer: "FRATBOY NIALL FREAKIN HORAN (sorry sayang)" },
             { question: "siapa paling cool ? ", options: ["ADRIANA", "ADRIANA BALQIS", "MOMOI", "NAU"], answer: "ADRIANA BALQIS"},
             { question: "siapa kids yang birthday harini ? ", options: ["AISH", "FARISH AIMAN", "AIMAN", "FARISH"], answer: "FARISH AIMAN"}
         ];
@@ -466,23 +390,21 @@
         let playerTicker;
 
         function nextView(hideIndex, showIndex) {
-            document.getElementById('view-' + hideIndex).classList.add('hidden');
-            document.getElementById('view-' + showIndex).classList.remove('hidden');
+            document.getElementById(`view-${hideIndex}`).classList.add('hidden');
+            document.getElementById(`view-${showIndex}`).classList.remove('hidden');
             if(showIndex === 2) { loadQuizItem(); }
             if(showIndex === 4) { refreshTicket(); }
         }
 
         function loadQuizItem() {
             const item = quizDeck[indexPointer];
-            document.getElementById('tracker').innerText = 'STREAK: ' + indexPointer + ' / ' + quizDeck.length;
+            document.getElementById('tracker').innerText = `STREAK: ${indexPointer} / ${quizDeck.length}`;
             document.getElementById('quiz-title').innerText = item.question;
             const opsBox = document.getElementById('quiz-options');
             opsBox.innerHTML = '';
-            item.options.forEach(function(opt) {
-                const btn = document.createElement('button'); 
-                btn.innerText = opt;
-                btn.onclick = function() { verifyChoice(opt); }; 
-                opsBox.appendChild(btn);
+            item.options.forEach(opt => {
+                const btn = document.createElement('button'); btn.innerText = opt;
+                btn.onclick = () => verifyChoice(opt); opsBox.appendChild(btn);
             });
         }
 
@@ -493,7 +415,7 @@
                 if (indexPointer < quizDeck.length) { loadQuizItem(); } else { nextView(2, 3); }
             } else {
                 mainFrame.classList.add('incorrect');
-                setTimeout(function() { mainFrame.classList.remove('incorrect'); }, 400);
+                setTimeout(() => mainFrame.classList.remove('incorrect'), 400);
                 alert("yah salah, noob. :p");
             }
         }
@@ -504,12 +426,12 @@
             const stamp = document.getElementById('live-timer');
             let flowPercent = 0;
             trigger.innerText = "⏸";
-            playerTicker = setInterval(function() {
+            playerTicker = setInterval(() => {
                 if(flowPercent < 100) {
                     flowPercent += 1; filler.style.width = flowPercent + "%";
                     let elapsed = Math.floor((flowPercent / 100) * 225);
                     let m = Math.floor(elapsed / 60); let s = elapsed % 60;
-                    stamp.innerText = m + ':' + (s < 10 ? '0' : '') + s;
+                    stamp.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
                 } else { clearInterval(playerTicker); }
             }, 150);
         }
@@ -522,30 +444,22 @@
             posterFrame.style.display = "block";
             
             document.getElementById('poster-movie-title').innerText = mov;
-            document.getElementById('poster-snack-title').innerText = '🍿 with ' + snk;
+            document.getElementById('poster-snack-title').innerText = `🍿 with ${snk}`;
         }
 
+        // DIBAWAH INI DIBAIKI: Memastikan surat rahsia terus dipaparkan serta-merta tanpa perlu tunggu 10 saat!
         function launchSurpriseEnd() {
             clearInterval(playerTicker); 
             nextView(4, 5);
+            confetti({ particleCount: 150, spread: 85, origin: { y: 0.65 }, colors: ['#ff3344', '#00f0ff', '#ffffff'] });
             
-            var defaults = { spread: 360, ticks: 50, gravity: 0, decay: 0.94, startVelocity: 30, shapes: ['star'], colors: ['#a855f7', '#00f0ff', '#ffffff', '#ff3344'] };
-            
-            function shootStars() {
-                confetti(Object.assign({}, defaults, { particleCount: 40, scalar: 1.2 }));
-                confetti(Object.assign({}, defaults, { particleCount: 20, scalar: 0.75 }));
-            }
-            
-            setTimeout(shootStars, 0);
-            setTimeout(shootStars, 100);
-            setTimeout(shootStars, 250);
-
+            // Surat terus kelihatan serentak dengan teks Star Wars berpusing
             document.getElementById('final-letter').style.opacity = '1';
             
-            var stopTime = Date.now() + (4.0 * 1000);
+            var stopTime = Date.now() + (3.5 * 1000);
             (function ambientSparks() {
-                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#a855f7', '#00f0ff'] });
-                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#a855f7', '#00f0ff'] });
+                confetti({ particleCount: 2, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#ff3344', '#00f0ff'] });
+                confetti({ particleCount: 2, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#ff3344', '#00f0ff'] });
                 if (Date.now() < stopTime) { requestAnimationFrame(ambientSparks); }
             }());
         }
