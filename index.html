@@ -39,12 +39,10 @@
             position: relative;
         }
 
-        /* --- BACKGROUND STAR EFFECT --- */
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Kombinasi Grid Y2K + Dot Bintang */
             background-image: 
                 linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
@@ -63,7 +61,6 @@
             100% { opacity: 0.8; }
         }
 
-        /* Y2K Downtown OS Window Console Box */
         .container {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -80,7 +77,6 @@
             overflow: hidden;
         }
 
-        /* Retro OS Top Window Bar */
         .window-bar {
             background: #16161f;
             padding: 10px 16px;
@@ -93,28 +89,17 @@
             color: var(--y2k-purple);
             font-weight: bold;
         }
-        .window-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .window-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #2a2a35;
-        }
+        .window-dots { display: flex; gap: 6px; }
+        .window-dot { width: 8px; height: 8px; border-radius: 50%; background: #2a2a35; }
         .window-dot.red { background: var(--neon-red); }
 
-        .window-content {
-            padding: 35px 24px;
-        }
+        .window-content { padding: 35px 24px; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.96) translateY(10px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* Y2K Marquee Banner */
         .y2k-ticker {
             background: rgba(168, 85, 247, 0.15);
             color: var(--text-primary);
@@ -146,7 +131,6 @@
             font-size: 13px;
             line-height: 1.6;
             margin-bottom: 32px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .ascii-art {
@@ -165,7 +149,6 @@
             gap: 12px;
         }
 
-        /* Cyber Brutalism Button Style */
         button {
             background: #12121a;
             color: var(--text-primary);
@@ -179,7 +162,6 @@
             letter-spacing: 0.5px;
             font-family: 'Courier Prime', monospace;
             transition: all 0.2s ease;
-            position: relative;
         }
 
         button:hover {
@@ -192,7 +174,7 @@
 
         .hidden { display: none !important; }
 
-        /* --- SPOTIFY DOWNTOWN DESIGN --- */
+        /* --- SPOTIFY --- */
         .spotify-widget {
             background: #09090d;
             border-radius: 12px;
@@ -212,11 +194,7 @@
             letter-spacing: 1px;
             margin-bottom: 16px;
         }
-        .track-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+        .track-row { display: flex; align-items: center; gap: 16px; }
         .art-box {
             width: 64px;
             height: 64px;
@@ -232,14 +210,14 @@
         .track-meta p { font-size: 11px; color: var(--text-secondary); margin-top: 3px; font-family: 'Courier Prime', monospace; }
         
         .timeline-wrapper { margin-top: 18px; }
-        .scrub-bar { width: 100%; height: 5px; background: #181822; border-radius: 0px; }
+        .scrub-bar { width: 100%; height: 5px; background: #181822; }
         .scrub-fill { width: 0%; height: 100%; background: var(--y2k-purple); }
         .duration-stamps { display: flex; justify-content: space-between; font-size: 10px; font-family: 'Courier Prime', monospace; color: var(--text-secondary); margin-top: 8px; }
         
         .audio-controls { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 12px; }
         .circle-play { background: #fff; color: #000; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 14px; cursor: pointer; }
 
-        /* --- DETAILED CINEMA DOWNTOWN PASS --- */
+        /* --- CINEMA STUB --- */
         .ticket-card {
             background: #09090d;
             border-radius: 12px; padding: 24px;
@@ -280,7 +258,6 @@
             width: 100%;
         }
 
-        /* CINEMA POSTER CONTAINER */
         .movie-poster-container {
             margin-top: 20px;
             border-radius: 8px;
@@ -306,7 +283,7 @@
             text-align: center;
         }
 
-        /* --- STAR WARS Y2K CRAWL --- */
+        /* --- CRAWL ENGINE --- */
         .universe-box { perspective: 300px; overflow: hidden; height: 220px; position: relative; background: #050507; border: 1px solid #1e1e28; border-radius: 8px; margin-bottom: 20px; }
         .crawl-engine {
             position: absolute; top: 100%; width: 100%;
@@ -422,7 +399,7 @@
                     </div>
 
                     <div class="movie-poster-container" id="poster-frame">
-                        <img src="foto_kita.jpeg" alt="Our Movie Photo" onerror="this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600'">
+                        <img src="foto_kita.jpeg" alt="Our Movie Photo" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600'">
                         <div class="poster-overlay">
                             <h4 id="poster-movie-title" style="font-size: 15px; font-weight: 800; color: #fff; font-family: 'Syne'; text-transform: uppercase;"></h4>
                             <p id="poster-snack-title" style="font-size: 11px; color: var(--y2k-purple); font-weight: 600; margin-top: 2px; font-family: 'Courier Prime', monospace;"></p>
@@ -479,7 +456,7 @@
             { question: "the very first time we met on.. ", options: ["9 November 2025", "8 November 2025", "7 November 1780", "14 December 2025"], answer: "8 November 2025" },
             { question: "berapa jam adriana imut pakai skincare ? 🙄", options: ["5h", "+-30mins", "1h", "60mins"], answer: "+-30mins" },
             { question: "fav routine seorang farish aiman time highsch ? ", options: ["tidur", "study study study", "escape class", "lapar mulu"], answer: "escape class" },
-            { question: "fav boyfriend adriana ? ", options: ["FRATBOY NIALL FREAKIN HORAN (sorry sayang)", "chayanon", "chad michael murray", "farish aiman"], answer: "FRATBOY NIALL FREAKIN HORAN (sorry sayang)" },
+            { question: "fav boyfriend adriana ? ", options: ["FRATBOY NIALL FREAKIN HORAN (sorry sayang)", "chayanon", "chad michael murray", "farish aiman"], answer: "farish aiman" },
             { question: "siapa paling cool ? ", options: ["ADRIANA", "ADRIANA BALQIS", "MOMOI", "NAU"], answer: "ADRIANA BALQIS"},
             { question: "siapa kids yang birthday harini ? ", options: ["AISH", "FARISH AIMAN", "AIMAN", "FARISH"], answer: "FARISH AIMAN"}
         ];
@@ -489,21 +466,23 @@
         let playerTicker;
 
         function nextView(hideIndex, showIndex) {
-            document.getElementById(`view-${hideIndex}`).classList.add('hidden');
-            document.getElementById(`view-${showIndex}`).classList.remove('hidden');
+            document.getElementById('view-' + hideIndex).classList.add('hidden');
+            document.getElementById('view-' + showIndex).classList.remove('hidden');
             if(showIndex === 2) { loadQuizItem(); }
             if(showIndex === 4) { refreshTicket(); }
         }
 
         function loadQuizItem() {
             const item = quizDeck[indexPointer];
-            document.getElementById('tracker').innerText = `STREAK: ${indexPointer} / ${quizDeck.length}`;
+            document.getElementById('tracker').innerText = 'STREAK: ' + indexPointer + ' / ' + quizDeck.length;
             document.getElementById('quiz-title').innerText = item.question;
             const opsBox = document.getElementById('quiz-options');
             opsBox.innerHTML = '';
-            item.options.forEach(opt => {
-                const btn = document.createElement('button'); btn.innerText = opt;
-                btn.onclick = () => verifyChoice(opt); opsBox.appendChild(btn);
+            item.options.forEach(function(opt) {
+                const btn = document.createElement('button'); 
+                btn.innerText = opt;
+                btn.onclick = function() { verifyChoice(opt); }; 
+                opsBox.appendChild(btn);
             });
         }
 
@@ -514,7 +493,7 @@
                 if (indexPointer < quizDeck.length) { loadQuizItem(); } else { nextView(2, 3); }
             } else {
                 mainFrame.classList.add('incorrect');
-                setTimeout(() => mainFrame.classList.remove('incorrect'), 400);
+                setTimeout(function() { mainFrame.classList.remove('incorrect'); }, 400);
                 alert("yah salah, noob. :p");
             }
         }
@@ -525,12 +504,12 @@
             const stamp = document.getElementById('live-timer');
             let flowPercent = 0;
             trigger.innerText = "⏸";
-            playerTicker = setInterval(() => {
+            playerTicker = setInterval(function() {
                 if(flowPercent < 100) {
                     flowPercent += 1; filler.style.width = flowPercent + "%";
                     let elapsed = Math.floor((flowPercent / 100) * 225);
                     let m = Math.floor(elapsed / 60); let s = elapsed % 60;
-                    stamp.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+                    stamp.innerText = m + ':' + (s < 10 ? '0' : '') + s;
                 } else { clearInterval(playerTicker); }
             }, 150);
         }
@@ -543,20 +522,18 @@
             posterFrame.style.display = "block";
             
             document.getElementById('poster-movie-title').innerText = mov;
-            document.getElementById('poster-snack-title').innerText = `🍿 with ${snk}`;
+            document.getElementById('poster-snack-title').innerText = '🍿 with ' + snk;
         }
 
-        // --- NEW SPARKLE & STAR SHOWER EFFECT ---
         function launchSurpriseEnd() {
             clearInterval(playerTicker); 
             nextView(4, 5);
             
-            // Mencipta letupan bentuk bintang yang comel
             var defaults = { spread: 360, ticks: 50, gravity: 0, decay: 0.94, startVelocity: 30, shapes: ['star'], colors: ['#a855f7', '#00f0ff', '#ffffff', '#ff3344'] };
             
             function shootStars() {
-                confetti({ ...defaults, particleCount: 40, scalar: 1.2 });
-                confetti({ ...defaults, particleCount: 20, scalar: 0.75 });
+                confetti(Object.assign({}, defaults, { particleCount: 40, scalar: 1.2 }));
+                confetti(Object.assign({}, defaults, { particleCount: 20, scalar: 0.75 }));
             }
             
             setTimeout(shootStars, 0);
